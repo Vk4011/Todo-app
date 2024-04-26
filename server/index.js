@@ -21,14 +21,6 @@ app.use(bodyParser.json());
 const jwt = require("jsonwebtoken");
 const moment = require("moment");
 
-mongoose
-  .connect("")
-  .then(() => {
-    console.log("Connected to MongoDB");
-  })
-  .catch((error) => {
-    console.log("Error connectin to mongoDb", error);
-  });
 
 
 
