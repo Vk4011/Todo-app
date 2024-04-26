@@ -37,6 +37,6 @@ const suggestions = [
 <Image
 style={{ width: 120, height: 120 }}
 source={{
-  uri: "https://cdn-icons-png.flaticon.com/128/9537/9537221.png",
+  uri: "https://cdn-icons-png.flaticon.com/128/7977/7977839.png",
 }}
 />

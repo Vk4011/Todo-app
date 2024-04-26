@@ -4,6 +4,7 @@ import moment from "moment";
 import { Calendar } from "react-native-calendars";
 import axios from "axios";
 import { FontAwesome, Feather, MaterialIcons } from "@expo/vector-icons";
+import api from "../../api";
 
 const index = () => {
   const today = moment().format("YYYY-MM-DD");
@@ -12,7 +13,7 @@ const index = () => {
   const fetchCompletedTodos = async () => {
     try {
       const response = await axios.get(
-        `http://localhost:3000/todos/completed/${selectedDate}`
+        `${api}/completed/${selectedDate}`
       );
 
       const completedTodos = response.data.completedTodos || [];

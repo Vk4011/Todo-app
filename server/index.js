@@ -183,6 +183,8 @@ app.get("/todos/count", async (req, res) => {
 });
 
 app.listen(port, () => {
-  db();
+  
   console.log(`\n\t Server is running on ${port}  \n`);
+  db();
+  
 });

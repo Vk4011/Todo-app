@@ -13,7 +13,9 @@ import {
   import { AntDesign ,Ionicons} from "@expo/vector-icons";
   import { useRouter, } from "expo-router";
 import axios from "axios";
-  
+import api from "../api";
+
+
   const register = () => {
     const [name,setName] = useState("");
     const [email, setEmail] = useState("");
@@ -26,7 +28,7 @@ import axios from "axios";
             password:password
         }
 
-        axios.post("http://localhost:3000/register",user).then((response) => {
+        axios.post(`${api}/register`,user).then((response) => {
             console.log(response);
             Alert.alert("Registration successfull","You have been registered succesfully");
             setEmail("");

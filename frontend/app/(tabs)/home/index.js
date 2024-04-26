@@ -17,7 +17,9 @@ import { Entypo, FontAwesome } from "@expo/vector-icons";
 import { Ionicons } from "@expo/vector-icons";
 import axios from "axios";
 import { MaterialIcons } from "@expo/vector-icons";
-
+import api from "../../api";
+// import tick from "../../images/tick.png"
+import task from "../../images/tasks.png"
 import moment from "moment";
 import { useRouter } from "expo-router";
 
@@ -46,7 +48,7 @@ const index = () => {
     },
     {
       id: "3",
-      todo: "Take pill reminder",
+      todo: "Take break reminder",
     },
     {
       id: "4",
@@ -56,6 +58,10 @@ const index = () => {
       id: "5",
       todo: "finish assignments",
     },
+    {
+      id: "6",
+      todo:"fasting"
+    }
   ];
   const addTodo = async () => {
     try {
@@ -65,7 +71,7 @@ const index = () => {
       };
 
       axios
-        .post("http://localhost:3000/todos/6583eea7c5bc35503ef0f5ae", todoData)
+        .post(`${api}/todos/6583eea7c5bc35503ef0f5ae`, todoData)
         .then((response) => {
           console.log(response);
         })
@@ -86,7 +92,7 @@ const index = () => {
   const getUserTodos = async () => {
     try {
       const response = await axios.get(
-        `http://localhost:3000/users/6583eea7c5bc35503ef0f5ae/todos`
+        `${api}/users/6583eea7c5bc35503ef0f5ae/todos`
       );
 
       console.log(response.data.todos);
@@ -111,7 +117,7 @@ const index = () => {
     try {
       setMarked(true);
       const response = await axios.patch(
-        `http://localhost:3000/todos/${todoId}/complete`
+        `${api}/todos/${todoId}/complete`
       );
       console.log(response.data);
     } catch (error) {
@@ -232,7 +238,7 @@ const index = () => {
                     <Image
                       style={{ width: 100, height: 100 }}
                       source={{
-                        uri: "https://cdn-icons-png.flaticon.com/128/6784/6784655.png",
+                        uri: {tick},
                       }}
                     />
                   </View>
@@ -300,9 +306,7 @@ const index = () => {
             >
               <Image
                 style={{ width: 200, height: 200, resizeMode: "contain" }}
-                source={{
-                  uri: "https://cdn-icons-png.flaticon.com/128/2387/2387679.png",
-                }}
+                source={task}
               />
               <Text
                 style={{

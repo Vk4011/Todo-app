@@ -2,14 +2,14 @@ import { Image, StyleSheet, Text, View, Dimensions } from "react-native";
 import React, { useState, useEffect } from "react";
 import axios from "axios";
 import { LineChart } from "react-native-chart-kit";
-
+import api from "../../api";
 const index = () => {
   const [completedTasks, setCompletedTasks] = useState(0);
   const [pendingTasks, setPendingTasks] = useState(0);
 
   const fetchTaskData = async () => {
     try {
-      const response = await axios.get("http://localhost:3000/todos/count");
+      const response = await axios.get(`${api}/todos/count`);
       const { totalCompletedTodos, totalPendingTodos } = response.data;
       setCompletedTasks(totalCompletedTodos);
       setPendingTasks(totalPendingTodos);
@@ -28,7 +28,7 @@ const index = () => {
         <Image
           style={{ width: 60, height: 60, borderRadius: 30 }}
           source={{
-            uri: "https://lh3.googleusercontent.com/ogw/ANLem4Zmk7fohWyH7kB6YArqFy0WMfXnFtuX3PX3LSBf=s64-c-mo",
+            uri: "https://cdn-icons-png.flaticon.com/128/4926/4926541.png",
           }}
         />
         <View>
@@ -53,7 +53,7 @@ const index = () => {
         >
           <View
             style={{
-              backgroundColor: "#89CFF0",
+              backgroundColor: "#B58AFD",
               padding: 10,
               borderRadius: 8,
               flex: 1,
@@ -71,7 +71,7 @@ const index = () => {
 
           <View
             style={{
-              backgroundColor: "#89CFF0",
+              backgroundColor: "#B58AFD",
               padding: 10,
               borderRadius: 8,
               flex: 1,
@@ -104,9 +104,9 @@ const index = () => {
         // yAxisSuffix="k"
         yAxisInterval={2} // optional, defaults to 1
         chartConfig={{
-          backgroundColor: "#e26a00",
-          backgroundGradientFrom: "#fb8c00",
-          backgroundGradientTo: "#ffa726",
+          backgroundColor: "rgb(70, 161, 240)",
+          backgroundGradientFrom: "#2B86C5",
+          backgroundGradientTo: " rgb(52, 174, 244)",
           decimalPlaces: 2, // optional, defaults to 2dp
           color: (opacity = 1) => `rgba(255, 255, 255, ${opacity})`,
           labelColor: (opacity = 1) => `rgba(255, 255, 255, ${opacity})`,
@@ -127,7 +127,7 @@ const index = () => {
 
       <View
         style={{
-          backgroundColor: "#89CFF0",
+          backgroundColor: "#B58AFD",
           padding: 10,
           borderRadius: 6,
           marginTop: 15,
@@ -148,7 +148,7 @@ const index = () => {
         <Image
           style={{ width: 120, height: 120 }}
           source={{
-            uri: "https://cdn-icons-png.flaticon.com/128/9537/9537221.png",
+            uri: "https://cdn-icons-png.flaticon.com/128/10810/10810064.png",
           }}
         />
       </View>
